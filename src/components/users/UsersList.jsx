@@ -1,17 +1,13 @@
-import React from 'react';
-import { useEffect, useContext } from 'react';
-import UserItem from './UserItem';
-import GithubContext from '../../context/GithubContext';
+import React from 'react'
+import { useContext } from 'react'
+import UserItem from './UserItem'
+import GithubContext from '../../context/GithubContext'
 
 function UsersList() {
-  const { users, loading, fetchUsers } = useContext(GithubContext);
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
+  const { users, loading } = useContext(GithubContext)
 
   if (loading) {
-    return <h1>LOADING...</h1>;
+    return <h1>LOADING...</h1>
   } else {
     return (
       <div className='grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2'>
@@ -22,8 +18,8 @@ function UsersList() {
           />
         ))}
       </div>
-    );
+    )
   }
 }
 
-export default UsersList;
+export default UsersList
